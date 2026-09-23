@@ -1,0 +1,7 @@
+{
+  "name": "Nepali Voiceover Studio",
+  "description": "Native Nepali Text-to-Speech and Voiceover Director powered by Gemini, featuring Kathmandu accent, Devanagari script conversion, and dynamic tone adaptation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
