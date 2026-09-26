@@ -1,0 +1,61 @@
+{
+  "id": "type-q-01",
+  "text": "तपाईंको नाम के हो?",
+  "reference": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 218534,
+    "devanagariText": "तपाईंको नाम के हो ?",
+    "pronunciation": "natural",
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "test": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 174846,
+    "devanagariText": "तपाईंको नाम के हो ?",
+    "fishInput": "तपाईंको नाम के हो ?",
+    "pronunciation": "natural",
+    "appliedFixes": [],
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "humanChecklist": [
+    "1 word pronunciation",
+    "2 syllable pronunciation",
+    "3 rhythm",
+    "4 pauses",
+    "5 intonation",
+    "6 naturalness",
+    "7 speaker identity (test only — must remain YOUR voice)"
+  ],
+  "saved": {
+    "reference": true,
+    "test": true
+  }
+}

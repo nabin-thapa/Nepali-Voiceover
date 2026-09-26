@@ -1,0 +1,61 @@
+{
+  "id": "conj-01",
+  "text": "ज्ञान नै शक्ति हो।",
+  "reference": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 152998,
+    "devanagariText": "ज्ञान नै शक्ति हो।",
+    "pronunciation": "natural",
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "test": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 174846,
+    "devanagariText": "ज्ञान नै शक्ति हो।",
+    "fishInput": "ज्ञान नै शक्ति हो।",
+    "pronunciation": "natural",
+    "appliedFixes": [],
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "humanChecklist": [
+    "1 word pronunciation",
+    "2 syllable pronunciation",
+    "3 rhythm",
+    "4 pauses",
+    "5 intonation",
+    "6 naturalness",
+    "7 speaker identity (test only — must remain YOUR voice)"
+  ],
+  "saved": {
+    "reference": true,
+    "test": true
+  }
+}

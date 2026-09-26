@@ -1,0 +1,66 @@
+{
+  "id": "rural-01",
+  "text": "हाम्रो गाउँमा धेरै गाई र भैंसी छन्।",
+  "reference": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 273150,
+    "devanagariText": "हाम्रो गाउँमा धेरै गाई र भैँसी छन्।",
+    "pronunciation": "natural",
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "test": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 267686,
+    "devanagariText": "हाम्रो गाउँमा धेरै गाई र भैँसी छन्।",
+    "fishInput": "हाम्रो गाउँमा धेरै गाई र भैँसी छन्।",
+    "pronunciation": "natural",
+    "appliedFixes": [
+      {
+        "from": "भैंसी",
+        "to": "भैँसी"
+      }
+    ],
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "humanChecklist": [
+    "1 word pronunciation",
+    "2 syllable pronunciation",
+    "3 rhythm",
+    "4 pauses",
+    "5 intonation",
+    "6 naturalness",
+    "7 speaker identity (test only — must remain YOUR voice)"
+  ],
+  "saved": {
+    "reference": true,
+    "test": true
+  }
+}

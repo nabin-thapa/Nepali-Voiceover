@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "speaker": "kala",
+  "installation": "SUCCESS",
+  "localInference": "SUCCESS",
+  "planned": 30,
+  "wavGenerated": 30,
+  "failed": 0,
+  "byGroup": {
+    "normal": 10,
+    "pronunciation": 10,
+    "number_date": 5,
+    "mixed": 5
+  },
+  "totalGenerationWallMs": 176503,
+  "totalAudioDurationSec": 68.396,
+  "meanLatencyMs": 5880,
+  "evidencePolicy": "VERIFIED only if real local WAV file written and RIFF/WAVE header parsed",
+  "training": false,
+  "timestamp": "2026-09-24T07:45:26.934Z"
+}

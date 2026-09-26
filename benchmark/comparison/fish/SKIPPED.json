@@ -1,0 +1,6 @@
+{
+  "engine": "fish",
+  "reason": "FISH_API_KEY not set and no generateFn injected",
+  "skipped": true,
+  "timestamp": "2026-09-24T07:08:05.747Z"
+}

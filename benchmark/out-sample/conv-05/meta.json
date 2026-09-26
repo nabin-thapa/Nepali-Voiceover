@@ -1,0 +1,27 @@
+{
+  "id": "conv-05",
+  "cat": "conversational",
+  "text": "मलाई एकछिन बस्न दिनुस्, म आउँछु।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 376914,
+  "fishInput": "मलाई एकछिन बस्न दिनुस्, म आउँछु।",
+  "devanagariText": "मलाई एकछिन बस्न दिनुस्, म आउँछु।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

@@ -1,0 +1,27 @@
+{
+  "id": "every-03",
+  "cat": "everyday",
+  "text": "आज बिहान चिया बनाएँ।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 185766,
+  "fishInput": "आज बिहान चिया बनाएँ।",
+  "devanagariText": "आज बिहान चिया बनाएँ।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

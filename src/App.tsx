@@ -13,8 +13,10 @@ import {
   Volume2,
   Square,
 } from 'lucide-react';
-import { ToneCategory, GenerationResult, ScriptSample } from './types';
+import { ToneCategory, GenerationResult, ScriptSample, ClonedVoice, VoiceArtist } from './types';
 import { VOICE_ARTISTS, SCRIPT_SAMPLES } from './data/samples';
+import { VoiceCloner } from './components/VoiceCloner';
+import { ResearchLab } from './components/ResearchLab';
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -198,22 +200,127 @@ export default function App() {
   // Generation state
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  // Speaking rate — wired end-to-end to Fish prosody.speed + Gemini pace directive
+  const [speedWpm, setSpeedWpm] = useState(140);
+
+  // Quality mode: "native" = Gemini ne-NP + director notes (best pronunciation); "unlimited" = Fish first
+  const [qualityMode, setQualityMode] = useState<'unlimited' | 'native'>('native');
+  // Language: auto-detect / force Nepali / force English (English skips Nepali rewrite)
+  const [languageHint, setLanguageHint] = useState<'auto' | 'nepali' | 'english'>('auto');
+  // Pronunciation: natural (Kathmandu everyday words) / precise (stricter dictionary + splits)
+  const [pronunciationMode, setPronunciationMode] = useState<'natural' | 'precise'>('natural');
+  // Debug pipeline OFF/ON
+  const [debugOn, setDebugOn] = useState(false);
+  const [lastDebug, setLastDebug] = useState<any>(null);
+  // User pronunciation dictionary (WORD → spoken form) — Phase 4
+  const [userDict, setUserDict] = useState<Array<{ from: string; to: string }>>([]);
+  const [dictFrom, setDictFrom] = useState('');
+  const [dictTo, setDictTo] = useState('');
+  const [dictMsg, setDictMsg] = useState<string | null>(null);
+  const [showDict, setShowDict] = useState(false);
+  const [quotaInfo, setQuotaInfo] = useState<{ used: number; softLimit: number; remaining: number; cached: number } | null>(null);
+
+  const loadUserDict = async () => {
+    try {
+      const r = await fetch('/api/pronunciation');
+      if (r.ok) {
+        const j = await r.json();
+        if (Array.isArray(j.entries)) setUserDict(j.entries);
+      }
+    } catch { /* ignore */ }
+  };
+  useEffect(() => { loadUserDict(); }, []);
+
+  const handleAddDict = async () => {
+    const from = dictFrom.trim();
+    const to = dictTo.trim();
+    if (!from || !to) { setDictMsg('WORD र PRONUNCIATION दुवै चाहिन्छ।'); return; }
+    try {
+      const r = await fetch('/api/pronunciation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from, to }),
+      });
+      const j = await r.json();
+      if (r.ok && j.success) {
+        setUserDict(j.entries || []);
+        setDictFrom(''); setDictTo('');
+        setDictMsg('✓ थपियो');
+      } else {
+        setDictMsg(j.error || 'सेभ गर्न सकिएन');
+      }
+    } catch (e: any) {
+      setDictMsg(e.message || 'त्रुटि');
+    }
+  };
+
+  const handleDeleteDict = async (from: string) => {
+    try {
+      const r = await fetch('/api/pronunciation', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from }),
+      });
+      const j = await r.json();
+      if (r.ok) setUserDict(j.entries || []);
+    } catch { /* ignore */ }
+  };
+
+  const refreshQuota = async () => {
+    try {
+      const r = await fetch('/api/tts/quota');
+      if (r.ok) {
+        const j = await r.json();
+        setQuotaInfo({ used: j.used, softLimit: j.softLimit, remaining: j.remaining, cached: j.cached });
+      }
+    } catch { /* ignore */ }
+  };
+
+  useEffect(() => { refreshQuota(); }, []);
 
   // Results
   const [takesHistory, setTakesHistory] = useState<GenerationResult[]>([]);
 
+  // Cloned voices
+  const [clones, setClones] = useState<ClonedVoice[]>([]);
+
+  const loadClones = async () => {
+    try {
+      const resp = await fetch('/api/voices');
+      if (resp.ok) {
+        const data = await resp.json();
+        if (Array.isArray(data.voices)) setClones(data.voices.filter((v: ClonedVoice) => v.state === 'trained'));
+      }
+    } catch { /* ignore */ }
+  };
+
+  useEffect(() => { loadClones(); }, []);
+
+  // Merge clones into selectable artists (alongside the 5 built-ins)
+  const cloneArtists: VoiceArtist[] = clones.map((c) => ({
+    id: c.id,
+    name: c.title,
+    nepaliName: c.title,
+    gender: 'Female' as const, // display placeholder — clone gender is unknown
+    character: c.description || 'क्लोन गरिएको आवाज (Cloned voice)',
+    bestFor: `प्राइभेट क्लोन · ${c.sampleCount} sample${c.sampleCount === 1 ? '' : 's'}`,
+    sampleQuote: 'नमस्ते! म तपाईंको क्लोन गरिएको आवाज हुँ।',
+    isClone: true,
+  }));
+  const allArtists = useMemo(() => [...cloneArtists, ...VOICE_ARTISTS], [clones]);
+
   // Load session history — auto-clear takes with old/unknown voice names
   useEffect(() => {
     try {
-      const validVoiceIds = new Set(VOICE_ARTISTS.map(v => v.id));
+      const builtInIds = new Set(VOICE_ARTISTS.map(v => v.id));
+      // Fish model ids are 24-char hex — treat as valid clone ids (clones load async)
+      const fishIdRe = /^[a-f0-9]{24}$/i;
       const saved = sessionStorage.getItem('nepali_tts_takes');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Filter out takes that used voices no longer available
-          const filtered = parsed.filter((t: any) => validVoiceIds.has(t.voiceName));
+          const filtered = parsed.filter((t: any) => builtInIds.has(t.voiceName) || fishIdRe.test(t.voiceName || ''));
           if (filtered.length !== parsed.length) {
-            // Stale data found — save cleaned version
             sessionStorage.setItem('nepali_tts_takes', JSON.stringify(filtered));
           }
           setTakesHistory(filtered);
@@ -223,8 +330,8 @@ export default function App() {
   }, []);
 
   const selectedVoiceArtist = useMemo(
-    () => VOICE_ARTISTS.find(v => v.id === selectedVoice) || VOICE_ARTISTS[0],
-    [selectedVoice]
+    () => allArtists.find(v => v.id === selectedVoice) || allArtists[allArtists.length - 1] || VOICE_ARTISTS[0],
+    [selectedVoice, allArtists]
   );
 
   const isRomanized = useMemo(() => isRomanizedText(inputText), [inputText]);
@@ -241,24 +348,30 @@ export default function App() {
     }
   };
 
-  // AI Script Generator — uses backend to generate a Nepali script from description
+  // AI Script Generator — backend multi-model Gemini + offline local fallback
+  const [scriptSource, setScriptSource] = useState<'gemini' | 'local' | null>(null);
+
   const handleGenerateScript = async () => {
     if (!scriptDesc.trim()) return;
     setIsGeneratingScript(true);
+    setScriptSource(null);
     try {
       const resp = await fetch('/api/tts/generate-script', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ description: scriptDesc, durationSeconds: scriptDuration, tone: selectedTone }),
       });
-      if (resp.ok) {
-        const data = await resp.json();
-        if (data.script) { setInputText(data.script); return; }
+      const data = await resp.json().catch(() => ({}));
+      if (resp.ok && data.script) {
+        setInputText(data.script);
+        setScriptSource(data.source === 'local' ? 'local' : 'gemini');
+        return;
       }
-      // Fallback: generate a simple placeholder
-      setInputText(`नमस्ते! ${scriptDesc} — यस ${scriptDuration} सेकेण्डको भ्वाइसओभरमा तपाईंलाई स्वागत छ।`);
+      throw new Error(data.error || 'script failed');
     } catch {
+      // Absolute last-resort placeholder if server is down entirely
       setInputText(`नमस्ते! ${scriptDesc} — यस ${scriptDuration} सेकेण्डको भ्वाइसओभरमा तपाईंलाई स्वागत छ।`);
+      setScriptSource('local');
     } finally {
       setIsGeneratingScript(false);
     }
@@ -276,7 +389,16 @@ export default function App() {
       const response = await fetch('/api/tts/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: inputText, tone: selectedTone, voiceName: selectedVoice, speedWpm: 140 }),
+        body: JSON.stringify({
+          text: inputText,
+          tone: selectedTone,
+          voiceName: selectedVoice,
+          speedWpm,
+          mode: qualityMode,
+          language: languageHint,
+          pronunciation: pronunciationMode,
+          debug: debugOn,
+        }),
       });
       const data = await response.json();
       if (!response.ok || !data.success) throw new Error(data.error || 'अडियो उत्पादन गर्न सकिएन।');
@@ -295,12 +417,25 @@ export default function App() {
         wordCount: data.wordCount,
         directorNotes: data.directorNotes,
         phonetics: data.phonetics || { aspirated: [], retroflex: [] },
+        appliedFixes: data.appliedFixes || [],
+        engine: data.engine,
+        mode: data.mode,
+        language: data.language,
+        pronunciation: data.pronunciation,
+        debug: data.debug,
+        analysis: data.analysis,
         createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
+      setLastDebug(data.debug || null);
 
       const updated = [newTake, ...takesHistory.slice(0, 9)];
       setTakesHistory(updated);
       try { sessionStorage.setItem('nepali_tts_takes', JSON.stringify(updated)); } catch { /* ignore */ }
+      if (data.quota) {
+        setQuotaInfo({ used: data.quota.used, softLimit: data.quota.softLimit, remaining: data.quota.remaining, cached: data.quota.cached });
+      } else {
+        refreshQuota();
+      }
     } catch (err: any) {
       setErrorMessage(err.message || 'त्रुटि उत्पन्न भयो।');
     } finally {
@@ -311,6 +446,19 @@ export default function App() {
   const handleClearHistory = () => {
     setTakesHistory([]);
     try { sessionStorage.removeItem('nepali_tts_takes'); } catch { /* ignore */ }
+  };
+
+  const handleCloned = (voice: ClonedVoice) => {
+    setClones((prev) => [voice, ...prev.filter((c) => c.id !== voice.id)]);
+    setSelectedVoice(voice.id);
+  };
+
+  const handleDeleteClone = async (id: string) => {
+    try {
+      await fetch(`/api/voices/${id}`, { method: 'DELETE' });
+      setClones((prev) => prev.filter((c) => c.id !== id));
+      if (selectedVoice === id) setSelectedVoice('Kore');
+    } catch { /* ignore */ }
   };
 
   const durationLabel = DURATION_OPTIONS.find(d => d.value === scriptDuration)?.label || '30 sec';
@@ -340,10 +488,10 @@ export default function App() {
             <div className="flex items-center gap-2 mb-4">
               <span className="text-lg">🎙️</span>
               <span className="text-sm font-bold text-gray-700">Select Voice</span>
-              <span className="text-xs text-gray-400 ml-1">— {VOICE_ARTISTS.length} Nepali voices available</span>
+              <span className="text-xs text-gray-400 ml-1">— {allArtists.length} voices available ({clones.length} cloned)</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {VOICE_ARTISTS.map(artist => {
+              {allArtists.map(artist => {
                 const isSelected = selectedVoice === artist.id;
                 return (
                   <div
@@ -363,26 +511,43 @@ export default function App() {
                     <div className={`h-11 w-11 rounded-full flex items-center justify-center text-lg font-bold shrink-0 transition-all ${
                       isSelected
                         ? 'bg-[#4f6ef7] text-white shadow-md shadow-[#4f6ef7]/30'
-                        : artist.gender === 'Female'
-                          ? 'bg-pink-100 text-pink-600'
-                          : 'bg-blue-100 text-blue-600'
+                        : artist.isClone
+                          ? 'bg-purple-100 text-purple-600'
+                          : artist.gender === 'Female'
+                            ? 'bg-pink-100 text-pink-600'
+                            : 'bg-blue-100 text-blue-600'
                     }`}>
-                      {artist.nepaliName.charAt(0)}
+                      {artist.isClone ? <span className="text-base">🧬</span> : artist.nepaliName.charAt(0)}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-0.5">
                         <span className="text-base font-bold text-gray-900 leading-tight">{artist.nepaliName}</span>
-                        <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold shrink-0 ${
-                          artist.gender === 'Female'
-                            ? 'bg-pink-100 text-pink-600'
-                            : 'bg-blue-100 text-blue-600'
-                        }`}>{artist.gender}</span>
+                        {artist.isClone && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded-full font-bold bg-purple-100 text-purple-600 uppercase tracking-wide">Clone</span>
+                        )}
+                        {!artist.isClone && (
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold shrink-0 ${
+                            artist.gender === 'Female'
+                              ? 'bg-pink-100 text-pink-600'
+                              : 'bg-blue-100 text-blue-600'
+                          }`}>{artist.gender}</span>
+                        )}
                       </div>
                       <div className="text-xs text-gray-500 truncate">{artist.character}</div>
                       <div className="text-[10px] text-gray-400 mt-0.5 truncate">{artist.bestFor}</div>
                     </div>
                     <div className="flex flex-col items-center gap-1.5 shrink-0">
                       <VoicePreviewButton voiceId={artist.id} voiceName={artist.nepaliName} />
+                      {artist.isClone && (
+                        <button
+                          id={`btn-delete-clone-${artist.id}`}
+                          onClick={e => { e.stopPropagation(); handleDeleteClone(artist.id); }}
+                          className="text-[9px] text-gray-400 hover:text-red-500 transition"
+                          title="Delete clone"
+                        >
+                          delete
+                        </button>
+                      )}
                       {isSelected && (
                         <span className="text-[9px] font-bold text-[#4f6ef7] uppercase tracking-wide">Active</span>
                       )}
@@ -392,6 +557,12 @@ export default function App() {
               })}
             </div>
           </div>
+
+          {/* Voice Cloner */}
+          <VoiceCloner onCloned={handleCloned} onDelete={handleDeleteClone} />
+
+          {/* Native Nepali TTS Lab — Research Mode */}
+          <ResearchLab />
 
           {/* AI Script Generator */}
           <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
@@ -448,7 +619,9 @@ export default function App() {
             </div>
             <p className="mt-2 text-[11px] text-gray-400 flex items-center gap-1">
               <Sparkles className="h-3 w-3 text-amber-400" />
-              AI will write a Nepali Devanagari script based on your description — then you can generate the voiceover
+              {scriptSource === 'local'
+                ? 'Offline template used (Gemini text quota busy) — edit the script, then generate voiceover'
+                : 'AI will write a Nepali Devanagari script based on your description — then you can generate the voiceover'}
             </p>
           </div>
 
@@ -544,6 +717,264 @@ export default function App() {
             </div>
           )}
 
+          {/* Speed / pacing control */}
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Speaking Pace</div>
+              <span className="text-xs font-mono font-bold text-[#4f6ef7]">{speedWpm} WPM</span>
+            </div>
+            <input
+              id="speed-slider"
+              type="range"
+              min={70}
+              max={200}
+              step={5}
+              value={speedWpm}
+              onChange={e => setSpeedWpm(Number(e.target.value))}
+              className="w-full accent-[#4f6ef7]"
+            />
+            <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+              <span>Slow · clear</span>
+              <span>Natural 140</span>
+              <span>Fast · energetic</span>
+            </div>
+            <p className="mt-1.5 text-[10px] text-gray-400">
+              Applied to both engines — Fish uses prosody speed, Gemini gets a pace direction.
+            </p>
+          </div>
+
+          {/* Pronunciation analysis (latest take) */}
+          {takesHistory.length > 0 && takesHistory[0] && (
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Pronunciation</div>
+              {takesHistory[0].appliedFixes && takesHistory[0].appliedFixes.length > 0 ? (
+                <div className="mb-2">
+                  <p className="text-[10px] text-emerald-600 font-medium mb-1">
+                    ✓ {takesHistory[0].appliedFixes.length} fix(es) applied for clearer speech
+                  </p>
+                  <div className="flex flex-wrap gap-1 max-h-24 overflow-y-auto">
+                    {takesHistory[0].appliedFixes.slice(0, 12).map((f, i) => (
+                      <span key={i} className="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-100 rounded px-1.5 py-0.5 font-medium">
+                        {f.from} → {f.to}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <p className="text-[10px] text-gray-400 mb-2">No lexicon replacements needed for this script.</p>
+              )}
+              <div className="flex flex-wrap gap-1.5 text-[10px]">
+                {takesHistory[0].phonetics.aspirated.length > 0 && (
+                  <span className="bg-amber-50 text-amber-700 border border-amber-100 rounded px-1.5 py-0.5">
+                    महाप्राण: {takesHistory[0].phonetics.aspirated.join(', ')}
+                  </span>
+                )}
+                {takesHistory[0].phonetics.retroflex.length > 0 && (
+                  <span className="bg-sky-50 text-sky-700 border border-sky-100 rounded px-1.5 py-0.5">
+                    मूर्धन्य: {takesHistory[0].phonetics.retroflex.join(', ')}
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Language / Pronunciation / Debug */}
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 flex flex-col gap-3">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Language</div>
+            <div className="grid grid-cols-3 gap-1.5">
+              {(['auto', 'nepali', 'english'] as const).map((L) => (
+                <button
+                  key={L}
+                  id={`lang-${L}`}
+                  onClick={() => setLanguageHint(L)}
+                  className={`rounded-lg px-2 py-1.5 text-[11px] font-semibold transition border ${
+                    languageHint === L
+                      ? 'border-[#4f6ef7] bg-blue-50 text-[#4f6ef7]'
+                      : 'border-gray-200 bg-white text-gray-500 hover:border-blue-300'
+                  }`}
+                >
+                  {L === 'auto' ? 'Auto' : L === 'nepali' ? 'नेपाली' : 'English'}
+                </button>
+              ))}
+            </div>
+            <p className="text-[10px] text-gray-400">Nepali applies the Kathmandu rewrite + dictionary. English skips Nepali transforms.</p>
+
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-1">Pronunciation</div>
+            <div className="grid grid-cols-2 gap-1.5">
+              <button
+                id="pron-natural"
+                onClick={() => setPronunciationMode('natural')}
+                className={`rounded-lg px-2 py-1.5 text-[11px] font-semibold transition border ${
+                  pronunciationMode === 'natural'
+                    ? 'border-emerald-400 bg-emerald-50 text-emerald-700'
+                    : 'border-gray-200 bg-white text-gray-500 hover:border-emerald-300'
+                }`}
+                title="Everyday Kathmandu Nepali — natural flow"
+              >
+                Natural
+              </button>
+              <button
+                id="pron-precise"
+                onClick={() => setPronunciationMode('precise')}
+                className={`rounded-lg px-2 py-1.5 text-[11px] font-semibold transition border ${
+                  pronunciationMode === 'precise'
+                    ? 'border-amber-400 bg-amber-50 text-amber-700'
+                    : 'border-gray-200 bg-white text-gray-500 hover:border-amber-300'
+                }`}
+                title="Stricter dictionary + loanword syllable splits"
+              >
+                Precise
+              </button>
+            </div>
+
+            <div className="flex items-center justify-between mt-1">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Debug Pipeline</div>
+              <button
+                id="debug-toggle"
+                onClick={() => setDebugOn((v) => !v)}
+                className={`rounded-full px-3 py-1 text-[10px] font-bold transition border ${
+                  debugOn
+                    ? 'border-purple-400 bg-purple-50 text-purple-700'
+                    : 'border-gray-200 bg-gray-50 text-gray-400'
+                }`}
+              >
+                {debugOn ? 'ON' : 'OFF'}
+              </button>
+            </div>
+            <p className="text-[10px] text-gray-400">When ON, each take returns staged text transforms (original → normalized → fish input).</p>
+          </div>
+
+          {/* User pronunciation dictionary — Phase 4 (no source edits needed) */}
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">My Pronunciation</div>
+              <button
+                id="dict-toggle"
+                onClick={() => setShowDict(v => !v)}
+                className="text-[10px] font-bold text-[#4f6ef7] hover:underline"
+              >
+                {showDict ? 'Hide' : `Edit (${userDict.length})`}
+              </button>
+            </div>
+            {showDict && (
+              <div className="flex flex-col gap-2">
+                <p className="text-[10px] text-gray-400">
+                  WORD → CORRECT PRONUNCIATION. Applied first at generate time. Saved to pronunciation.json.
+                </p>
+                <div className="flex gap-1.5">
+                  <input
+                    id="dict-from"
+                    value={dictFrom}
+                    onChange={e => setDictFrom(e.target.value)}
+                    placeholder="WORD (लिखत)"
+                    className="flex-1 min-w-0 rounded-lg border border-gray-200 px-2 py-1.5 text-xs"
+                  />
+                  <input
+                    id="dict-to"
+                    value={dictTo}
+                    onChange={e => setDictTo(e.target.value)}
+                    placeholder="बोल्ने ढंग"
+                    className="flex-1 min-w-0 rounded-lg border border-gray-200 px-2 py-1.5 text-xs"
+                  />
+                </div>
+                <button
+                  id="dict-add"
+                  onClick={handleAddDict}
+                  className="rounded-lg bg-[#4f6ef7] text-white text-xs font-semibold py-1.5 hover:opacity-90"
+                >
+                  + Add override
+                </button>
+                {dictMsg && <p className="text-[10px] text-emerald-600">{dictMsg}</p>}
+                <div className="flex flex-col gap-1 max-h-40 overflow-y-auto">
+                  {userDict.map(e => (
+                    <div key={e.from} className="flex items-center justify-between gap-1 text-[11px] bg-gray-50 rounded px-2 py-1">
+                      <span className="truncate">{e.from} → {e.to}</span>
+                      <button
+                        onClick={() => handleDeleteDict(e.from)}
+                        className="text-red-400 hover:text-red-600 text-[10px] shrink-0"
+                        title="Delete"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                  {userDict.length === 0 && (
+                    <p className="text-[10px] text-gray-400">No custom overrides yet.</p>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Debug pipeline panel (latest take) */}
+          {debugOn && lastDebug && (
+            <div className="bg-white rounded-2xl border border-purple-200 shadow-sm p-4">
+              <div className="text-xs font-semibold text-purple-600 uppercase tracking-wider mb-2">Debug Pipeline</div>
+              <p className="text-[10px] text-gray-400 mb-2">
+                engine: {lastDebug.engine || '—'}
+                {lastDebug.referenceId ? ` · ref: ${String(lastDebug.referenceId).slice(0, 8)}…` : ''}
+              </p>
+              <div className="flex flex-col gap-1.5 max-h-64 overflow-y-auto">
+                {(lastDebug.stages || []).map((st: any, i: number) => (
+                  <div key={i} className="rounded-lg border border-gray-100 bg-gray-50 p-2">
+                    <div className="text-[9px] font-bold text-purple-500 uppercase">{st.name}</div>
+                    <div className="text-[11px] text-gray-700 break-words whitespace-pre-wrap">{st.text}</div>
+                  </div>
+                ))}
+              </div>
+              {lastDebug.fishInput && (
+                <div className="mt-2 rounded-lg border border-emerald-100 bg-emerald-50 p-2">
+                  <div className="text-[9px] font-bold text-emerald-600 uppercase">Fish Input</div>
+                  <div className="text-[11px] text-emerald-800 break-words">{lastDebug.fishInput}</div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Quality mode toggle */}
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Quality Mode</div>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                id="mode-native"
+                onClick={() => setQualityMode('native')}
+                className={`rounded-xl px-3 py-2.5 text-xs font-semibold transition border-2 ${
+                  qualityMode === 'native'
+                    ? 'border-amber-400 bg-amber-50 text-amber-700'
+                    : 'border-gray-200 bg-white text-gray-500 hover:border-amber-300'
+                }`}
+                title="Gemini voice with forced ne-NP + Kathmandu pronunciation notes — best native Nepal accent"
+              >
+                ⭐ Native Nepal
+                <span className="block text-[9px] font-normal text-gray-400 mt-0.5">Gemini · ne-NP · best</span>
+              </button>
+              <button
+                id="mode-unlimited"
+                onClick={() => setQualityMode('unlimited')}
+                className={`rounded-xl px-3 py-2.5 text-xs font-semibold transition border-2 ${
+                  qualityMode === 'unlimited'
+                    ? 'border-[#4f6ef7] bg-[#f0f3ff] text-[#4f6ef7]'
+                    : 'border-gray-200 bg-white text-gray-500 hover:border-[#4f6ef7]/50'
+                }`}
+                title="Fish Audio — unlimited free generations with pronunciation dictionary + Nepali cues"
+              >
+                ♾️ Unlimited
+                <span className="block text-[9px] font-normal text-gray-400 mt-0.5">Fish · $0 · drafts</span>
+              </button>
+            </div>
+            <p className="mt-2 text-[10px] text-gray-400">
+              {qualityMode === 'native'
+                ? 'Gemini real voice + forced Nepali (ne-NP) + Kathmandu director notes for native pronunciation.'
+                : 'Fish-first unlimited with inline pronunciation dictionary — use for drafts. Switch to Native for final renders.'}
+            </p>
+            {qualityMode === 'native' && quotaInfo && (
+              <p className="mt-1.5 text-[10px] text-amber-600 font-medium">
+                Native quota ≈ {quotaInfo.remaining}/{quotaInfo.softLimit} left today
+                {quotaInfo.cached > 0 ? ` · ${quotaInfo.cached} cached (free reuses)` : ''}
+              </p>
+            )}
+          </div>
+
           {/* Selected Voice card */}
           <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
             <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Selected Voice</div>
@@ -603,6 +1034,18 @@ export default function App() {
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5 mb-0.5">
                           <span className="text-xs font-semibold text-gray-800">{take.voiceName}</span>
+                          {take.engine && (
+                            <span
+                              className={`text-[9px] px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wide ${
+                                take.engine === 'gemini'
+                                  ? 'bg-amber-100 text-amber-700'
+                                  : 'bg-emerald-100 text-emerald-700'
+                              }`}
+                              title={take.engine === 'gemini' ? 'Native quality (Gemini)' : 'Unlimited (Fish Audio)'}
+                            >
+                              {take.engine === 'gemini' ? 'native' : 'fish'}
+                            </span>
+                          )}
                           <span className="flex items-center gap-0.5 text-[10px] text-gray-400 font-mono">
                             <Clock className="h-2.5 w-2.5" />{take.createdAt}
                           </span>
@@ -632,10 +1075,10 @@ export default function App() {
             <div className="bg-[#f0f3ff] rounded-2xl border border-[#d0d9ff] p-4 text-xs text-[#4f6ef7]">
               <p className="font-semibold mb-1">💡 Tips</p>
               <ul className="space-y-1 text-[#6b7fc4]">
-                <li>• Type Nepali Devanagari or Romanized text</li>
-                <li>• Use Style Presets for emotion tags</li>
-                <li>• AI Script Generator creates scripts from description</li>
-                <li>• Try different voices for different moods</li>
+                <li>• Native Nepal mode = Gemini voice + ne-NP pronunciation</li>
+                <li>• Unlimited mode = free Fish drafts</li>
+                <li>• Use Nepali clones for personal voice + accent</li>
+                <li>• Re-generating same text reuses cache (no quota)</li>
               </ul>
             </div>
           )}

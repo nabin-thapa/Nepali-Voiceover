@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-024",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "K",
+  "difficulty": 5,
+  "text": "सृजनात्मकता र अनुशासन दुवै जरुरी छन्।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6457,
+  "latencyMs": 6455,
+  "sampleRate": 22050,
+  "durationSec": 2.885124716553288,
+  "bytes": 127278,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-024.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:24.112Z"
+}

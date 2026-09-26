@@ -1,0 +1,12 @@
+{
+  "sentenceId": "A-03",
+  "cat": "A",
+  "text": "आज मौसम एकदमै राम्रो छ।",
+  "engine": "fish",
+  "ok": true,
+  "isStub": false,
+  "latencyMs": 1920,
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:09:19.285Z",
+  "wav": "benchmark\\out-nepali\\fish\\A-03.wav"
+}

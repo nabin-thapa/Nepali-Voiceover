@@ -8,7 +8,16 @@
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test:pronunciation": "tsx scripts/test-pronunciation.ts",
+    "test:audio": "tsx scripts/test-audio.ts",
+    "benchmark": "tsx scripts/benchmark-run.ts",
+    "benchmark:nepali": "tsx scripts/benchmark-nepali.ts",
+    "benchmark:compare": "tsx scripts/benchmark-compare.ts",
+    "benchmark:kala": "tsx scripts/benchmark-kala.ts",
+    "system:check": "tsx scripts/system-check.ts",
+    "compare:reference": "tsx scripts/compare-gemini-fish.ts",
+    "dataset:validate": "tsx scripts/dataset-validate.ts"
   },
   "dependencies": {
     "@andresaya/edge-tts": "^1.8.1",
@@ -32,6 +41,6 @@
     "esbuild": "^0.25.0",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.21.0",
-    "typescript": "^7.0.2"
+    "typescript": "^5.9.2"
   }
 }

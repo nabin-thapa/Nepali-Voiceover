@@ -1,0 +1,12 @@
+{
+  "sentenceId": "A-01",
+  "cat": "A",
+  "text": "नमस्ते, तपाईं कस्तो हुनुहुन्छ?",
+  "engine": "fish",
+  "ok": true,
+  "isStub": false,
+  "latencyMs": 1665,
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:09:15.345Z",
+  "wav": "benchmark\\out-nepali\\fish\\A-01.wav"
+}

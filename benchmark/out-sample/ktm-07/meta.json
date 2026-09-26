@@ -1,0 +1,27 @@
+{
+  "id": "ktm-07",
+  "cat": "kathmandu",
+  "text": "असारमा मनाइने जात्रा राम्रो हुन्छ।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 289534,
+  "fishInput": "असारमा मनाइने जात्रा राम्रो हुन्छ।",
+  "devanagariText": "असारमा मनाइने जात्रा राम्रो हुन्छ।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

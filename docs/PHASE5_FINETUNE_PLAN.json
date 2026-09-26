@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "name": "nepali-finetune-plan",
+    "status": "PLAN_ONLY_DO_NOT_TRAIN",
+    "note": "Investigation plan for language adaptation + speaker adaptation. No training is started by this file.",
+    "currentAppArchitecture": "Fish Audio CLOUD API only — no local fish-speech Python install in this repo",
+    "currentFishModelHeader": "s2.1-pro-free",
+    "generated": "2026-09-23",
+    "determination": "CASE_C_plus_strong_CASE_D"
+  },
+  "determination": {
+    "A_cloud_language_ft": {
+      "possible": false,
+      "case": "C",
+      "evidence": "OpenAPI POST /model train_mode is const 'fast' only; no LoRA/full/language fine-tune endpoint in api.fish.audio OpenAPI"
+    },
+    "B_better_fast_clone": {
+      "possible": true,
+      "case": "B",
+      "evidence": "voices[] 1-20 + texts[] exact Devanagari; speaker conditioning only — not deep language FT",
+      "roi": "highest free lever"
+    },
+    "C_current_product_cloud_ft": {
+      "possible": false,
+      "case": "C",
+      "note": "Language fine-tuning not exposed on public cloud API used by this app"
+    },
+    "D_base_model_limiter": {
+      "likely": true,
+      "case": "D",
+      "evidence": "No language field; no Nepali pronunciation_dictionary; opaque s2.1-pro-free; must A/B vs Gemini ne-NP to quantify"
+    },
+    "summary": "Primary: Case C (no cloud language FT). Secondary risk: strong Case D (model Nepali quality). Best free path: Case B multi-sample re-record + listen A/B."
+  },
+  "pathA_fish_audio_cloud": {
+    "whatExists": [
+      "Voice cloning via POST https://api.fish.audio/model with voices[] + texts[] + tags + train_mode=fast",
+      "Synthesis via POST /v1/tts with reference_id",
+      "Optional zero-shot references[] on /v1/tts (MessagePack) — separate from clone"
+    ],
+    "whatIsUnknownFromRepo": [
+      "Enterprise/custom checkpoint training not documented in public OpenAPI — assume unavailable unless Fish support confirms"
+    ],
+    "actionRequired": [
+      "No public language FT — do not wait on cloud FT to improve quality",
+      "Use multi-sample fast clone + reference script instead"
+    ],
+    "compatibilityWithCurrentApp": "High — already posts multipart to /model"
+  },
+  "pathB_open_fish_speech_local": {
+    "applicable": false,
+    "reason": "This project has ZERO local fish-speech runtime (no .py, no checkpoint, no GPU training loop). Local FT would be a NEW subsystem, not a patch.",
+    "ifPursuedLater": {
+      "typicalMethod": "Fine-tune text-to-speech LLM / codec tokens on parallel (audio, transcript) pairs; speaker via reference tokens or speaker embedding",
+      "languageAdaptation": "Include large Nepali corpus so tokenizer+acoustic path learns Devanagari→sound",
+      "speakerPreservation": "Freeze or lightly adapt speaker encoder; mix original speaker data with Nepali text if multi-speaker; or train speaker adapter after language FT",
+      "loRA": "Common on transformer LM backbone of fish-speech-class models — lower VRAM, less speaker damage risk than full FT",
+      "fullFT": "Highest quality language shift; higher risk of catastrophic speaker drift without speaker data mix",
+      "minDatasetRough": {
+        "languageAdaptationOnly": "10–100+ hours clean Nepali (multi-speaker preferred) beyond single-voice clone",
+        "singleSpeakerCloneStyle": "0.5–10 minutes already used for zero-shot clone; insufficient alone for deep language FT",
+        "recommendedStartingPoint": "5–20 hours single-speaker high-quality Nepali for joint speaker+language; 50+ hours multi-speaker for robust ne-TTS"
+      },
+      "audioFormat": "16-bit PCM WAV preferred; 16 kHz minimum, 22.05/24/44.1 kHz common",
+      "transcripts": "UTF-8 Devanagari, sentence-aligned, one speaker, no music",
+      "segmentation": "0.5–15 s utterances typical; no long silences mid-phrase",
+      "paramsRough": {
+        "batch": "depends on VRAM",
+        "steps": "tens of thousands for full FT; fewer for LoRA",
+        "vram": "LoRA often 12–24 GB class; full FT may need 24–80 GB depending on model size — VERIFY against installed fish-speech version docs",
+        "risk": "speaker similarity drop if Nepali FT data is a different speaker than target clone"
+      },
+      "loRARecommendedFirst": true
+    }
+  },
+  "pathC_alternative_nepali_tts": {
+    "purpose": "Phase 12 — answer whether Fish is the limiter without destroying current system",
+    "modularFlag": "TTS_ENGINE = FISH_SPEECH | ALTERNATIVE | GEMINI",
+    "doNotDownloadHugeModelsAutomatically": true,
+    "scoring": "See config/tts-engines.json engines.ALTERNATIVE.candidates[].score10 and docs/DECISION_REPORT.md"
+  },
+  "speakerIdentityProtocol": {
+    "before": "Generate reference sentence list with current clone",
+    "after": "Same sentences after any adaptation",
+    "compare": ["speaker similarity (human or embedding if available)", "pronunciation accuracy", "prosody naturalness"],
+    "failCondition": "Pronunciation improves but speaker identity significantly deteriorates → do not ship"
+  },
+  "decisionGate": [
+    "1. Cloud language FT: CLOSED (Case C) — no public endpoint",
+    "2. Improve multi-sample clone (Case B) + listen A/B for Case D magnitude",
+    "3. If Case D dominates: pathB local FT as separate module OR pathC alternative engine",
+    "4. Never auto-start training from this app"
+  ]
+}

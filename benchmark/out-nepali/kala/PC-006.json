@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-006",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "P",
+  "difficulty": 5,
+  "text": "शरीर र षड्ङ्ग शुद्ध हुनुपर्छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6675,
+  "latencyMs": 6672,
+  "sampleRate": 22050,
+  "durationSec": 2.1304761904761906,
+  "bytes": 93998,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-006.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:43:53.845Z"
+}

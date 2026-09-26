@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "G-01",
+  "source": "corpus",
+  "group": "number_date",
+  "cat": "G",
+  "text": "एघार बजे भेट भयो।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6114,
+  "latencyMs": 6111,
+  "sampleRate": 22050,
+  "durationSec": 1.677687074829932,
+  "bytes": 74030,
+  "outputPath": "benchmark\\out-nepali\\kala\\G-01.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:41.939Z"
+}

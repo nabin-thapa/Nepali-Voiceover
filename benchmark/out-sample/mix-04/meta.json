@@ -1,0 +1,32 @@
+{
+  "id": "mix-04",
+  "cat": "mixed",
+  "text": "Google मा search गर्नुस्।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 191230,
+  "fishInput": "ऊग्ले मा सेअर्छ गर्नुस्।",
+  "devanagariText": "Gऊग्ले मा सेअर्छ गर्नुस्।",
+  "appliedFixes": [
+    {
+      "from": "Google",
+      "to": "गुगल"
+    }
+  ],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-050",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "K",
+  "difficulty": 5,
+  "text": "संरक्षण र संवर्द्धन दुवै आवश्यक छन्।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 5968,
+  "latencyMs": 5964,
+  "sampleRate": 22050,
+  "durationSec": 2.4903854875283447,
+  "bytes": 109870,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-050.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:35.822Z"
+}

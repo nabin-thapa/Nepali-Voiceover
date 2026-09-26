@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-018",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "P",
+  "difficulty": 5,
+  "text": "स्वास्थ्य शास्त्र अध्ययन गर्नुपर्छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 4726,
+  "latencyMs": 4723,
+  "sampleRate": 22050,
+  "durationSec": 2.351065759637188,
+  "bytes": 103726,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-018.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:11.848Z"
+}

@@ -1,0 +1,61 @@
+{
+  "id": "conv-04",
+  "text": "के छ साथी! ल चिया पिउने हो?",
+  "reference": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 322302,
+    "devanagariText": "के छ साथी ! ल चिया पिउने हो ?",
+    "pronunciation": "natural",
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "test": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 333222,
+    "devanagariText": "के छ साथी ! ल चिया पिउने हो ?",
+    "fishInput": "के छ साथी ! ल चिया पिउने हो ?",
+    "pronunciation": "natural",
+    "appliedFixes": [],
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "humanChecklist": [
+    "1 word pronunciation",
+    "2 syllable pronunciation",
+    "3 rhythm",
+    "4 pauses",
+    "5 intonation",
+    "6 naturalness",
+    "7 speaker identity (test only — must remain YOUR voice)"
+  ],
+  "saved": {
+    "reference": true,
+    "test": true
+  }
+}

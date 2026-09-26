@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "S-04",
+  "source": "corpus",
+  "group": "mixed",
+  "cat": "S",
+  "text": "Google मा search गर्नुस्।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 4139,
+  "latencyMs": 4137,
+  "sampleRate": 22050,
+  "durationSec": 1.6312471655328797,
+  "bytes": 71982,
+  "outputPath": "benchmark\\out-nepali\\kala\\S-04.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:45:23.182Z"
+}

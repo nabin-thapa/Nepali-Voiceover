@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+voices.json
+server.log
+test-nepali.mp3

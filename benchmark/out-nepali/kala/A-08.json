@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "A-08",
+  "source": "corpus",
+  "group": "normal",
+  "cat": "A",
+  "text": "म बुझेँ, तर एकछिन रोकिनुस्।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 7108,
+  "latencyMs": 7092,
+  "sampleRate": 22050,
+  "durationSec": 2.4858956916099775,
+  "bytes": 109672,
+  "outputPath": "benchmark\\out-nepali\\kala\\A-08.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:43:21.100Z"
+}

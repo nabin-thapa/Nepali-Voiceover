@@ -1,0 +1,66 @@
+{
+  "id": "animal-03",
+  "text": "आज भैंसी नदीको किनारमा घाँस चरिरहेको छ।",
+  "reference": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 344146,
+    "devanagariText": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+    "pronunciation": "natural",
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "test": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 365990,
+    "devanagariText": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+    "fishInput": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+    "pronunciation": "natural",
+    "appliedFixes": [
+      {
+        "from": "भैंसी",
+        "to": "भैँसी"
+      }
+    ],
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "humanChecklist": [
+    "1 word pronunciation",
+    "2 syllable pronunciation",
+    "3 rhythm",
+    "4 pauses",
+    "5 intonation",
+    "6 naturalness",
+    "7 speaker identity (test only — must remain YOUR voice)"
+  ],
+  "saved": {
+    "reference": true,
+    "test": true
+  }
+}

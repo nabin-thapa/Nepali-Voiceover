@@ -1,0 +1,40 @@
+{
+  "id": "hard-03",
+  "cat": "hard",
+  "text": "परियोजना सूचना अन्तर्गत निर्माण भएको छ।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 311378,
+  "fishInput": "प्रोजेक्ट खबर अन्तर्गत बनाउने भएको छ।",
+  "devanagariText": "प्रोजेक्ट खबर अन्तर्गत बनाउने भएको छ।",
+  "appliedFixes": [
+    {
+      "from": "निर्माण",
+      "to": "बनाउने"
+    },
+    {
+      "from": "सूचना",
+      "to": "खबर"
+    },
+    {
+      "from": "परियोजना",
+      "to": "प्रोजेक्ट"
+    }
+  ],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

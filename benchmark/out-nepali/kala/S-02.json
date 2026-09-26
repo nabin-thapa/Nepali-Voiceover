@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "S-02",
+  "source": "corpus",
+  "group": "mixed",
+  "cat": "S",
+  "text": "YouTube मा video हेर्न मन लाग्छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 3904,
+  "latencyMs": 3901,
+  "sampleRate": 22050,
+  "durationSec": 2.560045351473923,
+  "bytes": 112942,
+  "outputPath": "benchmark\\out-nepali\\kala\\S-02.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:45:14.493Z"
+}

@@ -1,0 +1,6 @@
+{
+  "engine": "gemini",
+  "reason": "GEMINI_API_KEY not set / quota exhausted",
+  "skipped": true,
+  "timestamp": "2026-09-24T07:08:05.751Z"
+}

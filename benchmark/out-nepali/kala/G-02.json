@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "G-02",
+  "source": "corpus",
+  "group": "number_date",
+  "cat": "G",
+  "text": "बिहान छ बजे म उठ्छु।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6049,
+  "latencyMs": 6046,
+  "sampleRate": 22050,
+  "durationSec": 1.7937868480725623,
+  "bytes": 79150,
+  "outputPath": "benchmark\\out-nepali\\kala\\G-02.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:47.992Z"
+}

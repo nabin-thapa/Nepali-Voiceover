@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "G-05",
+  "source": "corpus",
+  "group": "number_date",
+  "cat": "G",
+  "text": "राति दस बजेपछि बाहिर नजानुस्।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 5714,
+  "latencyMs": 5711,
+  "sampleRate": 22050,
+  "durationSec": 2.501995464852608,
+  "bytes": 110382,
+  "outputPath": "benchmark\\out-nepali\\kala\\G-05.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:45:06.009Z"
+}

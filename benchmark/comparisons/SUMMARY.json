@@ -1,0 +1,649 @@
+{
+  "generatedAt": "2026-09-23T16:02:15.416Z",
+  "count": 10,
+  "report": [
+    {
+      "id": "ktm-02",
+      "text": "म आज काठमाडौं जाँदैछु।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 229458,
+        "devanagariText": "म आज काठमाडौं जाँदैछु।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 344146,
+        "devanagariText": "म आज काठमाडौं जाँदैछु।",
+        "fishInput": "म आज काठमाडौं जाँदैछु।",
+        "pronunciation": "natural",
+        "appliedFixes": [],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "rural-01",
+      "text": "हाम्रो गाउँमा धेरै गाई र भैंसी छन्।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 273150,
+        "devanagariText": "हाम्रो गाउँमा धेरै गाई र भैँसी छन्।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 267686,
+        "devanagariText": "हाम्रो गाउँमा धेरै गाई र भैँसी छन्।",
+        "fishInput": "हाम्रो गाउँमा धेरै गाई र भैँसी छन्।",
+        "pronunciation": "natural",
+        "appliedFixes": [
+          {
+            "from": "भैंसी",
+            "to": "भैँसी"
+          }
+        ],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "animal-03",
+      "text": "आज भैंसी नदीको किनारमा घाँस चरिरहेको छ।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 344146,
+        "devanagariText": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 365990,
+        "devanagariText": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+        "fishInput": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+        "pronunciation": "natural",
+        "appliedFixes": [
+          {
+            "from": "भैंसी",
+            "to": "भैँसी"
+          }
+        ],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "conj-01",
+      "text": "ज्ञान नै शक्ति हो।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 152998,
+        "devanagariText": "ज्ञान नै शक्ति हो।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 174846,
+        "devanagariText": "ज्ञान नै शक्ति हो।",
+        "fishInput": "ज्ञान नै शक्ति हो।",
+        "pronunciation": "natural",
+        "appliedFixes": [],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "hard-02",
+      "text": "शिक्षा र पर्यावरण महत्त्वपूर्ण छ।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 267686,
+        "devanagariText": "पढाइ र वातावरण महत्त्वपूर्ण छ।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 294994,
+        "devanagariText": "पढाइ र वातावरण महत्त्वपूर्ण छ।",
+        "fishInput": "पढाइ र वातावरण महत्त्वपूर्ण छ।",
+        "pronunciation": "natural",
+        "appliedFixes": [
+          {
+            "from": "पर्यावरण",
+            "to": "वातावरण"
+          },
+          {
+            "from": "शिक्षा",
+            "to": "पढाइ"
+          }
+        ],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "type-q-01",
+      "text": "तपाईंको नाम के हो?",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 218534,
+        "devanagariText": "तपाईंको नाम के हो ?",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 174846,
+        "devanagariText": "तपाईंको नाम के हो ?",
+        "fishInput": "तपाईंको नाम के हो ?",
+        "pronunciation": "natural",
+        "appliedFixes": [],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "type-l-01",
+      "text": "आज बिहान हामी सबै जल्दी उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 660902,
+        "devanagariText": "आज बिहान हामी सबै छिटो उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 699134,
+        "devanagariText": "आज बिहान हामी सबै छिटो उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+        "fishInput": "आज बिहान हामी सबै छिटो उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+        "pronunciation": "natural",
+        "appliedFixes": [
+          {
+            "from": "जल्दी",
+            "to": "छिटो"
+          }
+        ],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "mix-01",
+      "text": "हाम्रो software काम राम्रो छ।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 223998,
+        "devanagariText": "हाम्रो सोफ्त्वरे काम राम्रो छ।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 267686,
+        "devanagariText": "हाम्रो सोफ्त्वरे काम राम्रो छ।",
+        "fishInput": "हाम्रो सोफ्त्वरे काम राम्रो छ।",
+        "pronunciation": "natural",
+        "appliedFixes": [
+          {
+            "from": "software",
+            "to": "सफ्टवेयर"
+          },
+          {
+            "from": "सफ्टवेयर",
+            "to": "सफ्ट वेयर"
+          }
+        ],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "nasal-01",
+      "text": "गाउँ र घाँस राम्रो छ।",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 191230,
+        "devanagariText": "गाउँ र घाँस राम्रो छ।",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 240382,
+        "devanagariText": "गाउँ र घाँस राम्रो छ।",
+        "fishInput": "गाउँ र घाँस राम्रो छ।",
+        "pronunciation": "natural",
+        "appliedFixes": [],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    },
+    {
+      "id": "conv-04",
+      "text": "के छ साथी! ल चिया पिउने हो?",
+      "reference": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 322302,
+        "devanagariText": "के छ साथी ! ल चिया पिउने हो ?",
+        "pronunciation": "natural",
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "test": {
+        "engine": "fish",
+        "status": 200,
+        "ok": true,
+        "audioBytes": 333222,
+        "devanagariText": "के छ साथी ! ल चिया पिउने हो ?",
+        "fishInput": "के छ साथी ! ल चिया पिउने हो ?",
+        "pronunciation": "natural",
+        "appliedFixes": [],
+        "stages": [
+          "original",
+          "stripTags",
+          "serverPrep",
+          "unicodeNormalize",
+          "latinBrands",
+          "dictionary",
+          "prosody",
+          "fishInput",
+          "fishRepresentation",
+          "conversationalProsody",
+          "fishInput"
+        ]
+      },
+      "humanChecklist": [
+        "1 word pronunciation",
+        "2 syllable pronunciation",
+        "3 rhythm",
+        "4 pauses",
+        "5 intonation",
+        "6 naturalness",
+        "7 speaker identity (test only — must remain YOUR voice)"
+      ],
+      "saved": {
+        "reference": true,
+        "test": true
+      }
+    }
+  ]
+}

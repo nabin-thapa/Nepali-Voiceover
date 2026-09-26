@@ -1,0 +1,27 @@
+{
+  "id": "type-s-03",
+  "cat": "short",
+  "text": "धन्यवाद!",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 114770,
+  "fishInput": "धन्यवाद !",
+  "devanagariText": "धन्यवाद !",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

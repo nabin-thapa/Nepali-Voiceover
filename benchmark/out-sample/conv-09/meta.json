@@ -1,0 +1,27 @@
+{
+  "id": "conv-09",
+  "cat": "conversational",
+  "text": "म बुझेँ, तर एकछिन रोकिनुस्।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 469758,
+  "fishInput": "म बुझेँ, तर,एकछिन रोकिनुस्।",
+  "devanagariText": "म बुझेँ, तर,एकछिन रोकिनुस्।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

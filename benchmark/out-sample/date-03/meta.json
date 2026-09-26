@@ -1,0 +1,27 @@
+{
+  "id": "date-03",
+  "cat": "dates",
+  "text": "सन्देश मिति दुई हजार छब्बीस साल असार पन्ध्र गते पठाइएको छ।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 535294,
+  "fishInput": "सन्देश मिति दुई हजार छब्बीस साल असार पन्ध्र गते पठाइएको छ।",
+  "devanagariText": "सन्देश मिति दुई हजार छब्बीस साल असार पन्ध्र गते पठाइएको छ।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

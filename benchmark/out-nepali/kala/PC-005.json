@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-005",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "P",
+  "difficulty": 5,
+  "text": "षट्कोण ज्यामितिमा आउँछ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 5369,
+  "latencyMs": 5367,
+  "sampleRate": 22050,
+  "durationSec": 1.7589569160997733,
+  "bytes": 77614,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-005.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:43:47.166Z"
+}

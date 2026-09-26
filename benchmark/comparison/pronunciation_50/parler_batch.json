@@ -1,0 +1,302 @@
+[
+  {
+    "id": "PC-001",
+    "text": "नमस्ते, तपाईं कस्तो हुनुहुन्छ?",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-001.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-002",
+    "text": "ज्ञान नै शक्ति हो।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-002.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-003",
+    "text": "क्षमा गर्नुहोस्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-003.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-004",
+    "text": "त्रिशूल र श्रद्धा महत्त्वपूर्ण छन्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-004.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-005",
+    "text": "षट्कोण ज्यामितिमा आउँछ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-005.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-006",
+    "text": "शरीर र षड्ङ्ग शुद्ध हुनुपर्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-006.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-007",
+    "text": "कर्णले कर्ण सुन्ने कथा सुनाउँछ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-007.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-008",
+    "text": "यज्ञमा मन्त्रोच्चारण हुन्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-008.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-009",
+    "text": "टमाटर र टापरी बजारमा पाइन्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-009.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-010",
+    "text": "तपाईंको टोपी र तरकारी तयार छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-010.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-011",
+    "text": "डढेलो देखेर मानिस डराए।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-011.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-012",
+    "text": "धौलागिरिको हिमपातले ढाकियो।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-012.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-013",
+    "text": "पाँच ले पाँच जम्मा दस हुन्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-013.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-014",
+    "text": "गाउँ र घाँस राम्रो छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-014.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-015",
+    "text": "संस्कृत र संस्कार महत्त्वपूर्ण छन्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-015.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-016",
+    "text": "ज्ञाता र अज्ञात फरक हुन्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-016.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-017",
+    "text": "शिक्षकले शुद्ध उच्चारण सिकाउँछन्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-017.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-018",
+    "text": "स्वास्थ्य शास्त्र अध्ययन गर्नुपर्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-018.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-019",
+    "text": "चन्द्रमा आकाशमा उज्यालो छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-019.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-020",
+    "text": "हाँस्दै खेल्दै बच्चाहरू खेल्छन्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-020.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-021",
+    "text": "किन तिमी आज चुप छौ?",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-021.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-022",
+    "text": "धन र दौलत सबैको चाहिन्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-022.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-023",
+    "text": "क्षेत्रपालनले आर्थिक वृद्धि गर्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-023.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-024",
+    "text": "सृजनात्मकता र अनुशासन दुवै जरुरी छन्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-024.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-025",
+    "text": "त्रिभुवन विश्वविद्यालय काठमाडौंमा छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-025.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-026",
+    "text": "अन्तर्गत नियम अनुसार कारबाही हुनेछ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-026.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-027",
+    "text": "उद्यमशीलताले रोजगारी सिर्जना गर्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-027.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-028",
+    "text": "हिमालयको उचाइ र खाडीको गहिराइ चकित पार्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-028.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-029",
+    "text": "बैशाख एक गते नयाँ वर्ष हो।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-029.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-030",
+    "text": "सन्देश मिति दुई हजार छब्बीस साल असार पन्ध्र गते पठाइएको छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-030.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-031",
+    "text": "यो सामानको मूल्य दुई हजार पाँच सय रुपैयाँ हो।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-031.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-032",
+    "text": "बिहान छ बजे म उठ्छु।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-032.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-033",
+    "text": "रामचन्द्र गुरुङले भाषण दिए।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-033.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-034",
+    "text": "सगरमाथा विश्वको अग्लो शिखर हो।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-034.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-035",
+    "text": "खुवाउँदै गरिरहेको छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-035.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-036",
+    "text": "श्रोता सभा सुनिर्दिष्ट थियो।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-036.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-037",
+    "text": "हाम्रो software काम राम्रो छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-037.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-038",
+    "text": "NPC र NRB को नीति फरक छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-038.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-039",
+    "text": "Database ले ठूलो मात्रामा data संग्रह गर्छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-039.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-040",
+    "text": "आज बिहान काठमाडौं उपत्यकामा हल्ला भएको छ, र यातायात सामान्य छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-040.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-041",
+    "text": "नेपालको हिमाली क्षेत्रमा जैविक विविधता अत्यन्त समृद्ध छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-041.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-042",
+    "text": "नयाँ स्वाद, नयाँ अनुभव — अहिले नै किन्नुहोस्!",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-042.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-043",
+    "text": "म त यति खुसी छु कि भन्नै सक्दिन।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-043.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-044",
+    "text": "सावधान! बाटो खतरनाक छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-044.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-045",
+    "text": "आज भोरदेखि बादल छाएको छ, तर बरुको सम्भावना कम छ। हामी बिहानै तयार भएर बजार गयौं।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-045.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-046",
+    "text": "जलवायु परिवर्तनले नेपालमा व्यापक असर पारिरहेको छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-046.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-047",
+    "text": "स्वच्छ सहर बनाउन सबै नागरिकको सहभागिता आवश्यक छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-047.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-048",
+    "text": "किन तिमी आज चुप छौ?",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-048.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-049",
+    "text": "प्रशासनिक सुधार अपरिहार्य छ।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-049.wav",
+    "voice": "Amrita"
+  },
+  {
+    "id": "PC-050",
+    "text": "संरक्षण र संवर्द्धन दुवै आवश्यक छन्।",
+    "out": "C:\\Users\\Admin\\Downloads\\nepali-voiceover-studio\\benchmark\\comparison\\pronunciation_50\\indic_parler\\PC-050.wav",
+    "voice": "Amrita"
+  }
+]

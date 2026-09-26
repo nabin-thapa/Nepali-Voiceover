@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "engine": "modular",
+    "default": "FISH_SPEECH",
+    "description": "Phase 12/14 — optional alternative TTS engines for A/B against Fish without replacing the current system.",
+    "note": "ALTERNATIVE is a stub until you configure a compatible local/cloud engine. Do not auto-download large models.",
+    "scoredOn": [
+      "nepaliSupport",
+      "voiceClone",
+      "quality",
+      "cost",
+      "latency",
+      "privacy",
+      "hardwareFit",
+      "license",
+      "integrationEffort",
+      "keepsCurrentUI"
+    ],
+    "scoreScale": "0-2 per criterion, max 20",
+    "generated": "2026-09-23"
+  },
+  "TTS_ENGINE": "FISH_SPEECH",
+  "engines": {
+    "FISH_SPEECH": {
+      "enabled": true,
+      "type": "cloud",
+      "endpoint": "https://api.fish.audio/v1/tts",
+      "modelHeader": "s2.1-pro-free",
+      "supportsClone": true,
+      "supportsNepaliLanguageCode": false,
+      "supportsInlineReferencesMsgpack": true,
+      "status": "active",
+      "score10": {
+        "nepaliSupport": 1,
+        "voiceClone": 2,
+        "quality": 1,
+        "cost": 2,
+        "latency": 2,
+        "privacy": 1,
+        "hardwareFit": 2,
+        "license": 2,
+        "integrationEffort": 2,
+        "keepsCurrentUI": 2,
+        "total": 17,
+        "notes": "Unlimited free tier + your clone; Nepali path opaque (CASE D risk)."
+      }
+    },
+    "GEMINI": {
+      "enabled": true,
+      "type": "cloud",
+      "languageCode": "ne-NP",
+      "supportsClone": false,
+      "status": "active-reference",
+      "role": "Quality reference for Nepali pronunciation/naturalness (Phase 10). Not a clone replacement. Never copy voice identity.",
+      "score10": {
+        "nepaliSupport": 2,
+        "voiceClone": 0,
+        "quality": 2,
+        "cost": 1,
+        "latency": 1,
+        "privacy": 1,
+        "hardwareFit": 2,
+        "license": 1,
+        "integrationEffort": 2,
+        "keepsCurrentUI": 2,
+        "total": 14,
+        "notes": "Best known ne-NP naturalness here; quota 429/10-day limits; stock voices only."
+      }
+    },
+    "ALTERNATIVE": {
+      "enabled": false,
+      "type": "unset",
+      "candidates": [
+        {
+          "id": "local-fish-lora",
+          "name": "Local fish-speech + LoRA (language+speaker)",
+          "nepali": "trainable with 5–20h+ single-speaker data",
+          "clone": true,
+          "hardware": "GPU 12–24GB class VRAM typical for LoRA — verify docs",
+          "autoInstall": false,
+          "bucket": "REQUIRES-FINETUNE/LOCAL",
+          "score10": {
+            "nepaliSupport": 2,
+            "voiceClone": 2,
+            "quality": 2,
+            "cost": 2,
+            "latency": 2,
+            "privacy": 2,
+            "hardwareFit": 0,
+            "license": 1,
+            "integrationEffort": 0,
+            "keepsCurrentUI": 1,
+            "total": 14,
+            "notes": "Only path for deep FT + inspectable tokens; big integration lift."
+          }
+        },
+        {
+          "id": "azure-ne",
+          "name": "Azure Neural TTS (ne voices)",
+          "nepali": "yes (cloud, limited voice list)",
+          "clone": "limited custom neural",
+          "hardware": "cloud key required",
+          "autoInstall": false,
+          "bucket": "CLOUD-POSSIBLE",
+          "score10": {
+            "nepaliSupport": 2,
+            "voiceClone": 1,
+            "quality": 2,
+            "cost": 1,
+            "latency": 2,
+            "privacy": 1,
+            "hardwareFit": 2,
+            "license": 2,
+            "integrationEffort": 1,
+            "keepsCurrentUI": 2,
+            "total": 16,
+            "notes": "Strong cloud Nepali if identity clone not required or custom neural available."
+          }
+        },
+        {
+          "id": "indic-tts-local",
+          "name": "AI4Bharat Indic / Parler-TTS style local",
+          "nepali": "check ne support at install time",
+          "clone": "limited",
+          "hardware": "GPU recommended",
+          "autoInstall": false,
+          "bucket": "REQUIRES-LOCAL",
+          "score10": {
+            "nepaliSupport": 1,
+            "voiceClone": 1,
+            "quality": 1,
+            "cost": 2,
+            "latency": 1,
+            "privacy": 2,
+            "hardwareFit": 1,
+            "license": 1,
+            "integrationEffort": 1,
+            "keepsCurrentUI": 1,
+            "total": 12,
+            "notes": "Verify ne model card before adopt."
+          }
+        },
+        {
+          "id": "mms",
+          "name": "Meta MMS TTS",
+          "nepali": "verify ne model",
+          "clone": false,
+          "hardware": "GPU/CPU",
+          "autoInstall": false,
+          "bucket": "REQUIRES-LOCAL",
+          "score10": {
+            "nepaliSupport": 1,
+            "voiceClone": 0,
+            "quality": 1,
+            "cost": 2,
+            "latency": 1,
+            "privacy": 2,
+            "hardwareFit": 1,
+            "license": 1,
+            "integrationEffort": 1,
+            "keepsCurrentUI": 1,
+            "total": 11,
+            "notes": "No clone — identity lost unless speaker adapter added."
+          }
+        },
+        {
+          "id": "piper",
+          "name": "Piper TTS",
+          "nepali": "community voices — verify",
+          "clone": false,
+          "hardware": "CPU OK",
+          "autoInstall": false,
+          "bucket": "REQUIRES-LOCAL",
+          "score10": {
+            "nepaliSupport": 1,
+            "voiceClone": 0,
+            "quality": 1,
+            "cost": 2,
+            "latency": 2,
+            "privacy": 2,
+            "hardwareFit": 2,
+            "license": 2,
+            "integrationEffort": 1,
+            "keepsCurrentUI": 1,
+            "total": 14,
+            "notes": "Cheap/fast if a good ne voice exists; no clone."
+          }
+        },
+        {
+          "id": "xtts",
+          "name": "Coqui XTTS v2",
+          "nepali": "not officially — weak",
+          "clone": true,
+          "hardware": "GPU 8GB+",
+          "autoInstall": false,
+          "bucket": "REQUIRES-LOCAL",
+          "score10": {
+            "nepaliSupport": 0,
+            "voiceClone": 2,
+            "quality": 1,
+            "cost": 2,
+            "latency": 1,
+            "privacy": 2,
+            "hardwareFit": 1,
+            "license": 1,
+            "integrationEffort": 1,
+            "keepsCurrentUI": 1,
+            "total": 12,
+            "notes": "Clone strong, Nepali weak — poor fit for this goal."
+          }
+        }
+      ],
+      "selection": null,
+      "status": "disabled"
+    }
+  },
+  "fishMultiReference": {
+    "enabled": false,
+    "default": false,
+    "description": "Optional zero-shot multi-reference on /v1/tts via references[] + application/msgpack. OFF until listen-verified against reference_id path.",
+    "sampleDir": "reference-audio",
+    "maxSamples": 5,
+    "contentType": "application/msgpack",
+    "envOverride": "FISH_MULTI_REF"
+  },
+  "comparisonProtocol": {
+    "sameText": true,
+    "engines": ["FISH_SPEECH", "GEMINI", "ALTERNATIVE"],
+    "metrics": [
+      "word pronunciation",
+      "syllable",
+      "rhythm",
+      "pauses",
+      "intonation",
+      "naturalness",
+      "speaker identity"
+    ],
+    "outputDirs": {
+      "fish": "benchmark/comparison/fish",
+      "gemini": "benchmark/comparison/gemini",
+      "legacy": "benchmark/comparisons"
+    },
+    "errorReportTemplate": "docs/PRONUNCIATION_ERROR_REPORT.md"
+  }
+}

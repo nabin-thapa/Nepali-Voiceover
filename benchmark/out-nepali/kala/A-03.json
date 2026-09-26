@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "A-03",
+  "source": "corpus",
+  "group": "normal",
+  "cat": "A",
+  "text": "आज मौसम एकदमै राम्रो छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 5687,
+  "latencyMs": 5684,
+  "sampleRate": 22050,
+  "durationSec": 2.1536961451247167,
+  "bytes": 95022,
+  "outputPath": "benchmark\\out-nepali\\kala\\A-03.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:42:47.960Z"
+}

@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "A-09",
+  "source": "corpus",
+  "group": "normal",
+  "cat": "A",
+  "text": "ल भइहाल्छ, हिजो जस्तो नहोऊ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 7154,
+  "latencyMs": 7151,
+  "sampleRate": 22050,
+  "durationSec": 2.660045351473923,
+  "bytes": 117352,
+  "outputPath": "benchmark\\out-nepali\\kala\\A-09.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:43:28.257Z"
+}

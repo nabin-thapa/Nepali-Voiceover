@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "A-06",
+  "source": "corpus",
+  "group": "normal",
+  "cat": "A",
+  "text": "हजुर, अहिले नै गरिदिन्छु।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6559,
+  "latencyMs": 6542,
+  "sampleRate": 22050,
+  "durationSec": 2.2188662131519274,
+  "bytes": 97896,
+  "outputPath": "benchmark\\out-nepali\\kala\\A-06.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:43:06.421Z"
+}

@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "S-05",
+  "source": "corpus",
+  "group": "mixed",
+  "cat": "S",
+  "text": "Mobile recharge गर्नुपर्यो कि?",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 3748,
+  "latencyMs": 3744,
+  "sampleRate": 22050,
+  "durationSec": 2.623265306122449,
+  "bytes": 115730,
+  "outputPath": "benchmark\\out-nepali\\kala\\S-05.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:45:26.932Z"
+}

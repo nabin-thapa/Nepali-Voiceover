@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-023",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "Q",
+  "difficulty": 5,
+  "text": "क्षेत्रपालनले आर्थिक वृद्धि गर्छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 5798,
+  "latencyMs": 5796,
+  "sampleRate": 22050,
+  "durationSec": 2.4555555555555557,
+  "bytes": 108334,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-023.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:17.650Z"
+}

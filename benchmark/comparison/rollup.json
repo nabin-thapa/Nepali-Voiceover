@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-09-24T07:09:16.691Z",
+  "use": "cases",
+  "limit": 2,
+  "summaries": [
+    {
+      "engine": "fish",
+      "skipped": false,
+      "total": 2,
+      "ok": 2,
+      "fail": 0,
+      "timestamp": "2026-09-24T07:09:16.688Z"
+    },
+    {
+      "engine": "indic_parler",
+      "skipped": true,
+      "ok": 0,
+      "fail": 0
+    }
+  ]
+}

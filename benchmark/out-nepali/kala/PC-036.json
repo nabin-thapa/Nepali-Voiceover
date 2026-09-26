@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-036",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "Q",
+  "difficulty": 5,
+  "text": "श्रोता सभा सुनिर्दिष्ट थियो।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 5736,
+  "latencyMs": 5731,
+  "sampleRate": 22050,
+  "durationSec": 1.933106575963719,
+  "bytes": 85294,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-036.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:29.851Z"
+}

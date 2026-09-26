@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-004",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "K",
+  "difficulty": 5,
+  "text": "त्रिशूल र श्रद्धा महत्त्वपूर्ण छन्।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6251,
+  "latencyMs": 6249,
+  "sampleRate": 22050,
+  "durationSec": 2.025986394557823,
+  "bytes": 89390,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-004.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:43:41.794Z"
+}

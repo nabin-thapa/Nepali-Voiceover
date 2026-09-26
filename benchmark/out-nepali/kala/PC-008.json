@@ -1,0 +1,21 @@
+{
+  "engine": "kala",
+  "sentenceId": "PC-008",
+  "source": "pronunciation_cases",
+  "group": "pronunciation",
+  "cat": "K",
+  "difficulty": 5,
+  "text": "यज्ञमा मन्त्रोच्चारण हुन्छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 8365,
+  "latencyMs": 8362,
+  "sampleRate": 22050,
+  "durationSec": 1.979546485260771,
+  "bytes": 87342,
+  "outputPath": "benchmark\\out-nepali\\kala\\PC-008.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:02.213Z"
+}

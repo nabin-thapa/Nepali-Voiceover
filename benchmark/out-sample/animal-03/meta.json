@@ -1,0 +1,32 @@
+{
+  "id": "animal-03",
+  "cat": "animal",
+  "text": "आज भैंसी नदीको किनारमा घाँस चरिरहेको छ।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 475218,
+  "fishInput": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+  "devanagariText": "आज भैँसी नदीको किनारमा घाँस चरिरहेको छ।",
+  "appliedFixes": [
+    {
+      "from": "भैंसी",
+      "to": "भैँसी"
+    }
+  ],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

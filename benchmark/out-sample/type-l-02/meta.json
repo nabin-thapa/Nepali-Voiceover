@@ -1,0 +1,27 @@
+{
+  "id": "type-l-02",
+  "cat": "long",
+  "text": "यदि तपाईंले समयमा काम सक्नुभएन भने, हामीलाई अघि बताइदिनुहोस् ताकि हामी योजना परिवर्तन गर्न सकौं।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 972198,
+  "fishInput": "यदि तपाईंले समयमा काम सक्नुभएन भने, हामीलाई अघि बताइदिनुहोस् ताकि हामी योजना परिवर्तन गर्न सकौं।",
+  "devanagariText": "यदि तपाईंले समयमा काम सक्नुभएन भने, हामीलाई अघि बताइदिनुहोस् ताकि हामी योजना परिवर्तन गर्न सकौं।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

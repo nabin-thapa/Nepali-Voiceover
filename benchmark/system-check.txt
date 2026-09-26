@@ -1,0 +1,17 @@
+TTS_ENGINE selected: fish
+
+[AVAILABLE] fish               Fish Audio s2.1-pro-free (cloud) | local=false | nepali=unverified | clone=true
+[AVAILABLE] gemini             Gemini TTS ne-NP (reference) | local=false | nepali=verified | clone=false
+[AVAILABLE] indic_parler       Indic Parler-TTS (local, AI4Bharat) | local=true | nepali=verified | clone=false
+[AVAILABLE] kala               kala-tts real-nepali (local CPU) | local=true | nepali=verified | clone=false
+[UNAVAILABLE] chatterbox_nepali  Chatterbox Nepali fine-tune (local GPU) | local=true | nepali=experimental | clone=true — No local backend wired yet (EXPERIMENTAL stub)
+[UNAVAILABLE] alternative        Alternative engine (config: ALTERNATIVE) | local=true | nepali=unverified | clone=false — No local backend wired yet (EXPERIMENTAL stub)
+
+[OK] benchmark/nepali/corpus.json (main corpus)
+[OK] benchmark/nepali/pronunciation_cases.json (pronunciation cases)
+[OK] docs/TTS_FOUNDATION_RESEARCH.md (research doc)
+[OK] docs/NEPALI_HUMAN_EVALUATION.md (eval protocol)
+[OK] .env FISH_API_KEY (cloud Fish)
+[OK] .env GEMINI_API_KEY (Gemini reference)
+
+Corpus: 316 sentences across 26 categories (A–Z target ≥300) PASS

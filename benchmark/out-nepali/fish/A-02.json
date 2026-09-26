@@ -1,0 +1,12 @@
+{
+  "sentenceId": "A-02",
+  "cat": "A",
+  "text": "म ठिक छु, धन्यवाद। तिमी सकिएकी छौ?",
+  "engine": "fish",
+  "ok": true,
+  "isStub": false,
+  "latencyMs": 2004,
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:09:17.352Z",
+  "wav": "benchmark\\out-nepali\\fish\\A-02.wav"
+}

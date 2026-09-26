@@ -1,0 +1,28 @@
+{
+  "id": "conj-03",
+  "cat": "conjunct",
+  "text": "त्रिशूल र श्रद्धा महत्त्वपूर्ण छन्।",
+  "focus": "त्र/श्र",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 289534,
+  "fishInput": "त्रिशूल र श्रद्धा महत्त्वपूर्ण छन्।",
+  "devanagariText": "त्रिशूल र श्रद्धा महत्त्वपूर्ण छन्।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

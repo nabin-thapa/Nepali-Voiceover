@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "G-03",
+  "source": "corpus",
+  "group": "number_date",
+  "cat": "G",
+  "text": "दिउँसो दुई बजेसम्म बस्छु।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6019,
+  "latencyMs": 6004,
+  "sampleRate": 22050,
+  "durationSec": 2.1072562358276645,
+  "bytes": 92974,
+  "outputPath": "benchmark\\out-nepali\\kala\\G-03.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:44:54.015Z"
+}

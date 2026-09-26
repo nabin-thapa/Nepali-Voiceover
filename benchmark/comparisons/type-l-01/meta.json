@@ -1,0 +1,66 @@
+{
+  "id": "type-l-01",
+  "text": "आज बिहान हामी सबै जल्दी उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+  "reference": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 660902,
+    "devanagariText": "आज बिहान हामी सबै छिटो उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+    "pronunciation": "natural",
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "test": {
+    "engine": "fish",
+    "status": 200,
+    "ok": true,
+    "audioBytes": 699134,
+    "devanagariText": "आज बिहान हामी सबै छिटो उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+    "fishInput": "आज बिहान हामी सबै छिटो उठेका थियौं किनभने स्कुलको वार्षिकोत्सव कार्यक्रम सुरु हुनुभयो।",
+    "pronunciation": "natural",
+    "appliedFixes": [
+      {
+        "from": "जल्दी",
+        "to": "छिटो"
+      }
+    ],
+    "stages": [
+      "original",
+      "stripTags",
+      "serverPrep",
+      "unicodeNormalize",
+      "latinBrands",
+      "dictionary",
+      "prosody",
+      "fishInput",
+      "fishRepresentation",
+      "conversationalProsody",
+      "fishInput"
+    ]
+  },
+  "humanChecklist": [
+    "1 word pronunciation",
+    "2 syllable pronunciation",
+    "3 rhythm",
+    "4 pauses",
+    "5 intonation",
+    "6 naturalness",
+    "7 speaker identity (test only — must remain YOUR voice)"
+  ],
+  "saved": {
+    "reference": true,
+    "test": true
+  }
+}

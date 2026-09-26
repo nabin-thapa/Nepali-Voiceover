@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "A-01",
+  "source": "corpus",
+  "group": "normal",
+  "cat": "A",
+  "text": "नमस्ते, तपाईं कस्तो हुनुहुन्छ?",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 5834,
+  "latencyMs": 5825,
+  "sampleRate": 22050,
+  "durationSec": 2.5839455782312926,
+  "bytes": 113996,
+  "outputPath": "benchmark\\out-nepali\\kala\\A-01.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:42:36.265Z"
+}

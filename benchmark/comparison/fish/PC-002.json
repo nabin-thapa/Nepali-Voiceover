@@ -1,0 +1,12 @@
+{
+  "sentenceId": "PC-002",
+  "cat": "K",
+  "text": "ज्ञान नै शक्ति हो।",
+  "engine": "fish",
+  "ok": true,
+  "isStub": false,
+  "latencyMs": 1401,
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:09:16.683Z",
+  "wav": "benchmark\\comparison\\fish\\PC-002.wav"
+}

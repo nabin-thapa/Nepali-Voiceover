@@ -1,0 +1,27 @@
+{
+  "id": "hard-07",
+  "cat": "hard",
+  "text": "हिमालयको उचाइ र खाडीको गहिराइ चकित पार्छ।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 349606,
+  "fishInput": "हिमालयको उचाइ र खाडीको गहिराइ चकित पार्छ।",
+  "devanagariText": "हिमालयको उचाइ र खाडीको गहिराइ चकित पार्छ।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

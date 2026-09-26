@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "S-01",
+  "source": "corpus",
+  "group": "mixed",
+  "cat": "S",
+  "text": "हाम्रो software काम राम्रो छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 4575,
+  "latencyMs": 4573,
+  "sampleRate": 22050,
+  "durationSec": 2.025986394557823,
+  "bytes": 89390,
+  "outputPath": "benchmark\\out-nepali\\kala\\S-01.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:45:10.586Z"
+}

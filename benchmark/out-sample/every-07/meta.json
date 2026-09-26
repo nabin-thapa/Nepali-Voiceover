@@ -1,0 +1,27 @@
+{
+  "id": "every-07",
+  "cat": "everyday",
+  "text": "बजारमा तरकारी किन्न जाने हो।",
+  "ok": true,
+  "status": 200,
+  "engine": "fish",
+  "audioBytes": 251302,
+  "fishInput": "बजारमा तरकारी किन्न जाने हो।",
+  "devanagariText": "बजारमा तरकारी किन्न जाने हो।",
+  "appliedFixes": [],
+  "stages": [
+    "original",
+    "stripTags",
+    "serverPrep",
+    "unicodeNormalize",
+    "latinBrands",
+    "dictionary",
+    "prosody",
+    "fishInput",
+    "fishRepresentation",
+    "conversationalProsody",
+    "fishInput"
+  ],
+  "humanScore": null,
+  "humanNotes": ""
+}

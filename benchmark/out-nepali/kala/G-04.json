@@ -1,0 +1,20 @@
+{
+  "engine": "kala",
+  "sentenceId": "G-04",
+  "source": "corpus",
+  "group": "number_date",
+  "cat": "G",
+  "text": "साँझ पाँच बजेपछि पसल बन्द हुन्छ।",
+  "voiceId": "kala",
+  "success": true,
+  "localAudio": true,
+  "playableWav": true,
+  "generationTimeMs": 6274,
+  "latencyMs": 6271,
+  "sampleRate": 22050,
+  "durationSec": 2.6529251700680274,
+  "bytes": 117038,
+  "outputPath": "benchmark\\out-nepali\\kala\\G-04.wav",
+  "evidence": "VERIFIED",
+  "timestamp": "2026-09-24T07:45:00.292Z"
+}
